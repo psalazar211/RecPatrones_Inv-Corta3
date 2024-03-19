@@ -140,71 +140,14 @@ variables de difusión. Sin embargo, no es una variable de sólo lectura. Cada v
 
 En la table describe muchas diferencias entre Apache Spark y Hadoop MapReduce.
 
-| --- | Spark Hadoop | Mapreduce |
+| --- | Hadoop |   Spark |
 | --- | --- | --- |
-Storage In memory storing and
-processig
-On disk storing data
-Data Processing Hybrid processing:batch
-processing and stream
-processing
-Batch processing
-Real-Time Processing It can process real-time
-data from real-time event
-streams
-It fails when it comes
-to real-time data
-processing
-Code Writing Code is complex and
-lengthy
-Code is Compact
-with the API of
-Scala, Python, Java
-and Sparksql
-Fault Tolerance Spark uses RDD which
-rebuilds the lost partition
-through the information it
-already has
-It achieves fault
-tolerance through
-replication by using
-TaskTracker and
-JobTracker
-Execution Time It is 100 time faster than
-MapReduce
-It is slower than spark
-Security Sparks security is currently in its infancy, offering only authentication
-support through shared
-password authentication
-Hadoop MapReduce
-has better security
-features than Spark
-it supports Kerberos
-authentication, which
-is a good security
-feature but difficult to
-manage
-Cost Spark uses large amounts
-of RAM to run everything
-in-memory, and RAM is
-more expensive than hard
-disks
-Hadoop is diskbound, so saves
-the costs of buying
-expensive RAM
-Machine learning It comes with a Mllib
-library to make things
-simple and allows the
-algorithm to perform
-much better than
-traditional MapReduce
-programs
-It uses iterations
-for the same data
-,each iterative step
-involves a mapreduce sequences and
-it does not support
-all the algorithms
+| Arquitectura  | Hadoop almacena y procesa datos en un almacenamiento externo. |Spark almacena y procesa datos en la memoria interna.|
+| Rendimiento |    Hadoop procesa los datos por lotes. |Spark procesa los datos en tiempo real.|
+|  Costo |Hadoop es económico.| En comparación, Spark es más caro.  |
+|  Escalabilidad |Hadoop se puede escalar fácilmente si se agregan más nodos.| En comparación, Spark supone un reto mayor. |
+|  Machine learning |Hadoop se integra con bibliotecas externas para proporcionar capacidades de machine learning. | Spark cuenta con bibliotecas de machine learning integradas.|
+|Seguridad | Hadoop cuenta con características de seguridad sólidas, cifrado de almacenamiento y control de acceso. |Spark cuenta con una seguridad básica. El departamento de TI depende de que establezca un entorno operativo seguro para la implementación de Spark. |
 
 # Bibliografía
 1. W. E. Moutaouakal and K. Baïna, "Comparative Experimentation of MLOps Power on Microsoft Azure, Amazon Web Services, and Google Cloud Platform," 2023 IEEE 6th International Conference on Cloud Computing and Artificial Intelligence: Technologies and Applications (CloudTech), Marrakech, Morocco, 2023, pp. 1-8, doi: 10.1109/CloudTech58737.2023.10366138. keywords: {Training;Productivity;Cloud computing;DevOps;Web services;Machine learning;Transforms;MLOps;production;automation;Cloud;Azure;AWS;GCP;experimentation;benchmark},
