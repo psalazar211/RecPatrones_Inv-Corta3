@@ -121,24 +121,24 @@ Apache hadoopconsta de los siguientes demonios:
 • Tasktracker
 
 Apache Spark es una potente plataforma de código abierto para grandes procesamiento de datos. Se considera una plataforma multipropósito que
-se caracteriza por su flexibilidad, escalabilidad y rapidez. Además, se considera un marco de computación paralelo común de código abierto que tiene las ventajas de MapReduce. Spark está pensado para ejecutarse sobre Hadoop y puede ser una alternativa al mapa de lotes tradicional y los modelos reducidos. Además, Spark está bien adaptado para procesos iterativos, consultas rápidas y procesamiento de datos en tiempo real.
+se caracteriza por su flexibilidad, escalabilidad y rapidez. Además, se considera un marco de computación paralelo común de código abierto que tiene las ventajas de MapReduce. Spark está pensado para ejecutarse sobre Hadoop y puede ser una alternativa al mapa de lotes tradicional y los modelos reducidos. Además, Spark está bien adaptado para procesos iterativos, consultas rápidas y procesamiento de datos en tiempo real.[2]
 
-Spark integra cuatro bibliotecas principales:
+Spark integra cuatro bibliotecas principales[2]:
 • SQL para consultas de datos grandes y estructurados.
 • MLlib que contiene los principales algoritmos de aprendizaje y métodos estadísticos.
 • GraphX ​​para procesamiento de gráficos y redes.
 • Spark Streaming para procesar datos en streaming.
 
 Apache Spark se caracteriza por un conjunto de algoritmos eficientes de aprendizaje automático y bibliotecas de álgebra lineal mejoradas. Se agrega un motor optimizado en Spark para admitir gráficos generales de ejecución. Spark cubre una amplia gama de cargas de trabajo, incluidas consultas interactivas, procesamiento por lotes
-aplicaciones, algoritmos iterativos y streaming. Además, al utilizar el marco Spark, se reduce la carga de gestión que supone mantener herramientas independientes. De hecho, integra el concepto de RDD (Resilient Distributed Dataset). Esquemáticamente, cada partición de datos permanece en la memoria de su servidor informático entre dos iteraciones mientras gestiona los principios de tolerancia a fallos. Los comandos específicos de Spark se ejecutan en Java, Scala, y algunos en Python.
+aplicaciones, algoritmos iterativos y streaming. Además, al utilizar el marco Spark, se reduce la carga de gestión que supone mantener herramientas independientes. De hecho, integra el concepto de RDD (Resilient Distributed Dataset). Esquemáticamente, cada partición de datos permanece en la memoria de su servidor informático entre dos iteraciones mientras gestiona los principios de tolerancia a fallos.[2] Los comandos específicos de Spark se ejecutan en Java, Scala, y algunos en Python.
 La siguiente Figura muestra la arquitectura de Apache Spark:
 
 <img width="264" alt="image" src="https://github.com/psalazar211/RecPatrones_Inv-Corta3/assets/104046146/f75e28bb-40cf-4464-bcae-0111a14d9902">
 
 Los RDD son el núcleo de las funcionalidades de Spark. son un conjunto de registros o sujetos de un tipo específico, particionados o distribuidos en varios nodos del clúster. Si un nodo se ve afectado por un fallo de hardware o de red. La mesa resiliente se reconstruye automáticamente en otros nodos y la tarea se completa. La propiedad principal de los Spark RDD es la capacidad de almacenarlos en la memoria de cada nodo. Esto ahorra una gran cantidad de acceso al disco, que es el bloqueo principal, en términos de tiempo de computación, cuando se ejecutan algoritmos iterativos. Otra especificidad de Spark es las variables de difusión. Estas variables son de solo lectura y están definidas desde el nodo maestro, y son conocidos y guardados en la memoria de todos los demás nodos. Un acumulador es un caso especial de
-variables de difusión. Sin embargo, no es una variable de sólo lectura. Cada versión local puede ser incrementada por cada nodo mientras el nodo maestro tiene acceso a la acumulación global.
+variables de difusión. Sin embargo, no es una variable de sólo lectura. Cada versión local puede ser incrementada por cada nodo mientras el nodo maestro tiene acceso a la acumulación global.[2]
 
-En la table describe muchas diferencias entre Apache Spark y Hadoop MapReduce.
+En la table describe muchas diferencias entre Apache Spark y Hadoop MapReduce[2]:
 
 | --- | Hadoop |   Spark |
 | --- | --- | --- |
