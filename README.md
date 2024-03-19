@@ -91,6 +91,14 @@ punto final.
 - Gestión de modelos y puntos de acceso.
 
 ## Hadoop-Sparks
+### Hadoop
+Hadoop MapReduce es un marco de programación de código abierto que se utiliza para el procesamiento de grandes conjuntos de datos estructurados y no estructurados que se almacenan en HDFS (Hadoop Distributed File System) en un entorno informático distribuido.El ecosistema Apache Hadoop se basa en varios módulos que son Hadoop Kernel, MapReduce, HDFS, Yarn, Apache Hive, Zookeeper y muchos otros.[2]
+Apache Hadoop se compone básicamente de dos componentes principales: Mapreduce y HDFS [2].
+A continuación se proporciona una breve descripción de estos dos componentes.
+• MapReduce es un modelo de programación que se construyó a partir de modelos encontrados en el campo de la programación funcional y la computación distribuida. Las tareas en MapReduce se desglosan en tres partes: mapa, reducción y controlador. Están organizados en pares de clave y valor. Los mapeadores emiten pares de claves y valores y los reductores los reciben, trabajan en ellos y producen el resultado final. Las aplicaciones que usan MapReduce leen los datos usando la función de mapa (en
+en forma de pares clave y valor) y producen una salida también en forma de pares (clave y valor). Este tipo de datos se adapta muy bien al entorno distribuido.
+Luego, la función de reducción toma los pares generados y produce los resultados finales. Los pares generalmente están ordenados de acuerdo con las teclas cuando se ingresa a la función de reducción. La lógica reductora funcionaría entonces en cada grupo clave; en este caso, resumiría los valores de cada clave y produciría el resultado final.
+La siguiente Figura describe la representación funcional del mapear y reducir funciones.
 
 # Bibliografía
 1. W. E. Moutaouakal and K. Baïna, "Comparative Experimentation of MLOps Power on Microsoft Azure, Amazon Web Services, and Google Cloud Platform," 2023 IEEE 6th International Conference on Cloud Computing and Artificial Intelligence: Technologies and Applications (CloudTech), Marrakech, Morocco, 2023, pp. 1-8, doi: 10.1109/CloudTech58737.2023.10366138. keywords: {Training;Productivity;Cloud computing;DevOps;Web services;Machine learning;Transforms;MLOps;production;automation;Cloud;Azure;AWS;GCP;experimentation;benchmark},
