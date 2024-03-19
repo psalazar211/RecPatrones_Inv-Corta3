@@ -91,6 +91,9 @@ punto final.
 - Gestión de modelos y puntos de acceso.
 
 ## Hadoop-Sparks
+
+La dificultad para procesar big data proviene de no solo el gran volumen de estos datos, sino también muchas tareas que caracterizan los datos RS, que son la adquisición de datos, preprocesamiento, almacenamiento, procesamiento, análisis e interpretación. En la literatura se proponen muchos marcos para abordar estos problemas. Entre estos marcos, enumeramos dos populares herramientas llamadas Hadoop y Spark.
+
 ### Hadoop
 Hadoop MapReduce es un marco de programación de código abierto que se utiliza para el procesamiento de grandes conjuntos de datos estructurados y no estructurados que se almacenan en HDFS (Hadoop Distributed File System) en un entorno informático distribuido.El ecosistema Apache Hadoop se basa en varios módulos que son Hadoop Kernel, MapReduce, HDFS, Yarn, Apache Hive, Zookeeper y muchos otros.[2]
 Apache Hadoop se compone básicamente de dos componentes principales: Mapreduce y HDFS [2].
@@ -98,7 +101,110 @@ A continuación se proporciona una breve descripción de estos dos componentes.
 • MapReduce es un modelo de programación que se construyó a partir de modelos encontrados en el campo de la programación funcional y la computación distribuida. Las tareas en MapReduce se desglosan en tres partes: mapa, reducción y controlador. Están organizados en pares de clave y valor. Los mapeadores emiten pares de claves y valores y los reductores los reciben, trabajan en ellos y producen el resultado final. Las aplicaciones que usan MapReduce leen los datos usando la función de mapa (en
 en forma de pares clave y valor) y producen una salida también en forma de pares (clave y valor). Este tipo de datos se adapta muy bien al entorno distribuido.
 Luego, la función de reducción toma los pares generados y produce los resultados finales. Los pares generalmente están ordenados de acuerdo con las teclas cuando se ingresa a la función de reducción. La lógica reductora funcionaría entonces en cada grupo clave; en este caso, resumiría los valores de cada clave y produciría el resultado final.
-La siguiente Figura describe la representación funcional del mapear y reducir funciones.
+La siguiente Figura describe la representación funcional del mapear y reducir funciones. [2]
+
+<img width="277" alt="image" src="https://github.com/psalazar211/RecPatrones_Inv-Corta3/assets/104046146/48355412-2799-42d7-a316-08c722a1bc80">
+
+
+- HDFS es responsable del almacenamiento de archivos. Fue diseñado y desarrollado para manejar archivos grandes de manera eficiente.. Es un sistema de archivos distribuido diseñado para funcionar en un grupo. El objetivo principal del uso de HDFS es facilitar la almacenamiento de archivos grandes dividiéndolos en bloques y distribuirlos en múltiples nodos de forma redundante. [2]
+
+Hadoop MapReduce almacena y procesa datos en una arquitectura distribuida; para lograr este objetivo, Hadoop implementa un modelo maestro y esclavo. Los demonios namenode y jobtracker son demonios maestros, mientras que los demonios datanode y tasktracker son demonios esclavos en la siguiente figura:
+
+<img width="268" alt="image" src="https://github.com/psalazar211/RecPatrones_Inv-Corta3/assets/104046146/133ae425-67ed-4b9a-a4c4-dc6b5b6ae5a0">
+
+
+Apache hadoopconsta de los siguientes demonios:
+• Namenode
+• Secondary namenode
+• Jobtracker
+• Datanode
+• Tasktracker
+
+Apache Spark es una potente plataforma de código abierto para grandes procesamiento de datos. Se considera una plataforma multipropósito que
+se caracteriza por su flexibilidad, escalabilidad y rapidez. Además, se considera un marco de computación paralelo común de código abierto que tiene las ventajas de MapReduce. Spark está pensado para ejecutarse sobre Hadoop y puede ser una alternativa al mapa de lotes tradicional y los modelos reducidos. Además, Spark está bien adaptado para procesos iterativos, consultas rápidas y procesamiento de datos en tiempo real.
+
+Spark integra cuatro bibliotecas principales:
+• SQL para consultas de datos grandes y estructurados.
+• MLlib que contiene los principales algoritmos de aprendizaje y métodos estadísticos.
+• GraphX ​​para procesamiento de gráficos y redes.
+• Spark Streaming para procesar datos en streaming.
+
+Apache Spark se caracteriza por un conjunto de algoritmos eficientes de aprendizaje automático y bibliotecas de álgebra lineal mejoradas. Se agrega un motor optimizado en Spark para admitir gráficos generales de ejecución. Spark cubre una amplia gama de cargas de trabajo, incluidas consultas interactivas, procesamiento por lotes
+aplicaciones, algoritmos iterativos y streaming. Además, al utilizar el marco Spark, se reduce la carga de gestión que supone mantener herramientas independientes. De hecho, integra el concepto de RDD (Resilient Distributed Dataset). Esquemáticamente, cada partición de datos permanece en la memoria de su servidor informático entre dos iteraciones mientras gestiona los principios de tolerancia a fallos. Los comandos específicos de Spark se ejecutan en Java, Scala, y algunos en Python.
+La siguiente Figura muestra la arquitectura de Apache Spark:
+
+<img width="264" alt="image" src="https://github.com/psalazar211/RecPatrones_Inv-Corta3/assets/104046146/f75e28bb-40cf-4464-bcae-0111a14d9902">
+
+Los RDD son el núcleo de las funcionalidades de Spark. son un conjunto de registros o sujetos de un tipo específico, particionados o distribuidos en varios nodos del clúster. Si un nodo se ve afectado por un fallo de hardware o de red. La mesa resiliente se reconstruye automáticamente en otros nodos y la tarea se completa. La propiedad principal de los Spark RDD es la capacidad de almacenarlos en la memoria de cada nodo. Esto ahorra una gran cantidad de acceso al disco, que es el bloqueo principal, en términos de tiempo de computación, cuando se ejecutan algoritmos iterativos. Otra especificidad de Spark es las variables de difusión. Estas variables son de solo lectura y están definidas desde el nodo maestro, y son conocidos y guardados en la memoria de todos los demás nodos. Un acumulador es un caso especial de
+variables de difusión. Sin embargo, no es una variable de sólo lectura. Cada versión local puede ser incrementada por cada nodo mientras el nodo maestro tiene acceso a la acumulación global.
+
+En la table describe muchas diferencias entre Apache Spark y Hadoop MapReduce.
+
+| --- | Spark Hadoop | Mapreduce |
+| --- | --- | --- |
+Storage In memory storing and
+processig
+On disk storing data
+Data Processing Hybrid processing:batch
+processing and stream
+processing
+Batch processing
+Real-Time Processing It can process real-time
+data from real-time event
+streams
+It fails when it comes
+to real-time data
+processing
+Code Writing Code is complex and
+lengthy
+Code is Compact
+with the API of
+Scala, Python, Java
+and Sparksql
+Fault Tolerance Spark uses RDD which
+rebuilds the lost partition
+through the information it
+already has
+It achieves fault
+tolerance through
+replication by using
+TaskTracker and
+JobTracker
+Execution Time It is 100 time faster than
+MapReduce
+It is slower than spark
+Security Sparks security is currently in its infancy, offering only authentication
+support through shared
+password authentication
+Hadoop MapReduce
+has better security
+features than Spark
+it supports Kerberos
+authentication, which
+is a good security
+feature but difficult to
+manage
+Cost Spark uses large amounts
+of RAM to run everything
+in-memory, and RAM is
+more expensive than hard
+disks
+Hadoop is diskbound, so saves
+the costs of buying
+expensive RAM
+Machine learning It comes with a Mllib
+library to make things
+simple and allows the
+algorithm to perform
+much better than
+traditional MapReduce
+programs
+It uses iterations
+for the same data
+,each iterative step
+involves a mapreduce sequences and
+it does not support
+all the algorithms
 
 # Bibliografía
 1. W. E. Moutaouakal and K. Baïna, "Comparative Experimentation of MLOps Power on Microsoft Azure, Amazon Web Services, and Google Cloud Platform," 2023 IEEE 6th International Conference on Cloud Computing and Artificial Intelligence: Technologies and Applications (CloudTech), Marrakech, Morocco, 2023, pp. 1-8, doi: 10.1109/CloudTech58737.2023.10366138. keywords: {Training;Productivity;Cloud computing;DevOps;Web services;Machine learning;Transforms;MLOps;production;automation;Cloud;Azure;AWS;GCP;experimentation;benchmark},
